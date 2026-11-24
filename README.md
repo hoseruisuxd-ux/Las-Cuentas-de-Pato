@@ -18,7 +18,7 @@ Nació con un propósito claro y práctico: llevar el control diario directament
 
 ## 📲 Instalación (Android)
 
-1. Descarga el archivo `.apk` desde la sección de **Releases** (o desde la carpeta correspondiente en este repositorio).
+1. Descarga el archivo `.apk` desde la sección de **Releases**.
 2. En tu dispositivo Android, abre el archivo descargado.
 3. Si el sistema lo solicita, habilita la opción **"Instalar aplicaciones de orígenes desconocidos"** para tu navegador o gestor de archivos.
 4. Completa la instalación y abre **Las Cuentas de Pato**.
