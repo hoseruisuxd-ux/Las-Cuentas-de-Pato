@@ -1,0 +1,73 @@
+<resources>
+    <string name="app_name">Las Cuentas de Pato</string>
+
+    <!-- Navigation -->
+    <string name="nav_today">Hoy</string>
+    <string name="nav_pending">Pendientes</string>
+    <string name="nav_clients">Clientes</string>
+    <string name="nav_summary">Resumen</string>
+
+    <!-- Auth -->
+    <string name="auth_subtitle">Tu libreta de almuerzos, clientes y cuentas siempre clara y respaldada en la nube.</string>
+    <string name="auth_sign_in_google">Iniciar sesión con Google</string>
+    <string name="auth_signing_in">Iniciando sesión…</string>
+    <string name="auth_feature_clients">Clientes con precio acordado y notas de cocina</string>
+    <string name="auth_feature_lunches">Registro de almuerzos en segundos y totales automáticos</string>
+    <string name="auth_feature_debts">Deudas, abonos parciales y cobros por WhatsApp</string>
+    <string name="auth_config_missing">Falta la configuración de inicio de sesión con Google.</string>
+    <string name="auth_error_generic">No se pudo iniciar sesión. Intenta de nuevo.</string>
+    <string name="auth_sign_out">Cerrar sesión</string>
+
+    <!-- Common -->
+    <string name="action_save">Guardar</string>
+    <string name="action_cancel">Cancelar</string>
+    <string name="action_delete">Eliminar</string>
+    <string name="action_edit">Editar</string>
+    <string name="action_retry">Reintentar</string>
+    <string name="action_back">Volver</string>
+    <string name="loading_data">Cargando tus cuentas…</string>
+    <string name="error_loading_data">No pudimos cargar los datos en este momento.</string>
+
+    <!-- Today / Lunch Entry -->
+    <string name="today_summary_title">Resumen del día</string>
+    <string name="today_lunches_label">Almuerzos</string>
+    <string name="today_billed_label">Facturado</string>
+    <string name="today_collected_label">Cobrado</string>
+    <string name="today_receivables_label">Por cobrar</string>
+    <string name="today_quick_register">Registro rápido</string>
+    <string name="today_add_lunch">Registrar almuerzo</string>
+    <string name="today_lunches_list_title">Almuerzos registrados</string>
+    <string name="today_empty_title">Aún no hay almuerzos en esta fecha</string>
+    <string name="today_empty_subtitle">Toca un cliente arriba o pulsa "Registrar almuerzo" para anotar la entrega del día.</string>
+    <string name="today_no_clients_hint">Primero agrega tus clientes para poder anotar sus almuerzos diarios.</string>
+    <string name="today_go_to_clients">Agregar mi primer cliente</string>
+
+    <!-- Pending Accounts -->
+    <string name="pending_title">Cuentas pendientes</string>
+    <string name="pending_hero_label">Total por cobrar</string>
+    <string name="pending_empty_title">¡Todas las cuentas están al día!</string>
+    <string name="pending_empty_subtitle">No hay saldos pendientes por cobrar en este momento.</string>
+    <string name="pending_action_pay">Registrar pago</string>
+    <string name="pending_action_whatsapp">WhatsApp</string>
+
+    <!-- Clients -->
+    <string name="clients_title">Mis clientes</string>
+    <string name="clients_add">Nuevo cliente</string>
+    <string name="clients_search_hint">Buscar cliente por nombre o nota…</string>
+    <string name="clients_empty_title">Aún no tienes clientes registrados</string>
+    <string name="clients_empty_subtitle">Guarda a cada cliente una sola vez con su precio acordado, modalidad de pago y preferencias.</string>
+
+    <!-- Summary -->
+    <string name="summary_title">Resumen y movimientos</string>
+    <string name="summary_by_method">Ingresos por método de pago</string>
+    <string name="summary_account_title">Cuenta respaldada</string>
+
+    <!-- Content descriptions -->
+    <string name="cd_welcome_illustration">Ilustración de comida casera y libreta de cuentas</string>
+    <string name="cd_previous_day">Día anterior</string>
+    <string name="cd_next_day">Día siguiente</string>
+    <string name="cd_pick_date">Elegir fecha</string>
+    <string name="cd_decrease_qty">Disminuir cantidad</string>
+    <string name="cd_increase_qty">Aumentar cantidad</string>
+    <string name="cd_whatsapp_send">Enviar resumen por WhatsApp</string>
+</resources>

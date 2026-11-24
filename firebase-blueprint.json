@@ -1,0 +1,200 @@
+{
+  "entities": {
+    "Client": {
+      "title": "Client",
+      "description": "A meal business customer with payment modality, agreed lunch price, dietary notes, and active/inactive status.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Owner Firebase Auth UID."
+        },
+        "fullName": {
+          "type": "string",
+          "description": "Full name of the customer."
+        },
+        "phone": {
+          "type": "string",
+          "description": "Optional phone number for WhatsApp reminders."
+        },
+        "address": {
+          "type": "string",
+          "description": "Optional delivery address or workplace."
+        },
+        "paymentModality": {
+          "type": "string",
+          "enum": ["DIARIO", "SEMANAL", "QUINCENAL", "MENSUAL"],
+          "description": "Agreed payment cadence."
+        },
+        "agreedPrice": {
+          "type": "integer",
+          "description": "Agreed price per lunch in COP pesos."
+        },
+        "notes": {
+          "type": "string",
+          "description": "Optional dietary preferences, allergies, or delivery instructions."
+        },
+        "status": {
+          "type": "string",
+          "enum": ["ACTIVO", "INACTIVO"],
+          "description": "Customer active status."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp set via FieldValue.serverTimestamp()."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp set via FieldValue.serverTimestamp()."
+        }
+      },
+      "required": [
+        "userId",
+        "fullName",
+        "paymentModality",
+        "agreedPrice",
+        "status",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "LunchEntry": {
+      "title": "LunchEntry",
+      "description": "A daily lunch delivery record for a specific customer with auto-calculated total.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Owner Firebase Auth UID."
+        },
+        "clientId": {
+          "type": "string",
+          "description": "Referenced client document ID."
+        },
+        "clientNameSnapshot": {
+          "type": "string",
+          "description": "Readable customer name snapshot at time of entry."
+        },
+        "dateEpochDay": {
+          "type": "integer",
+          "description": "Calendar day as epoch day integer."
+        },
+        "quantity": {
+          "type": "integer",
+          "description": "Number of lunches delivered."
+        },
+        "unitPrice": {
+          "type": "integer",
+          "description": "Unit price per lunch."
+        },
+        "totalAmount": {
+          "type": "integer",
+          "description": "Total price (quantity * unitPrice)."
+        },
+        "note": {
+          "type": "string",
+          "description": "Optional note for this delivery."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp set via FieldValue.serverTimestamp()."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp set via FieldValue.serverTimestamp()."
+        }
+      },
+      "required": [
+        "userId",
+        "clientId",
+        "clientNameSnapshot",
+        "dateEpochDay",
+        "quantity",
+        "unitPrice",
+        "totalAmount",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "PaymentRecord": {
+      "title": "PaymentRecord",
+      "description": "A full payment or partial payment (abono) recorded for a customer with payment method.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Owner Firebase Auth UID."
+        },
+        "clientId": {
+          "type": "string",
+          "description": "Referenced client document ID."
+        },
+        "clientNameSnapshot": {
+          "type": "string",
+          "description": "Readable customer name snapshot at time of payment."
+        },
+        "dateEpochDay": {
+          "type": "integer",
+          "description": "Payment calendar day as epoch day integer."
+        },
+        "amount": {
+          "type": "integer",
+          "description": "Amount paid in COP pesos."
+        },
+        "method": {
+          "type": "string",
+          "enum": ["EFECTIVO", "NEQUI", "TRANSFERENCIA", "DAVIPLATA", "OTRO"],
+          "description": "Payment method used."
+        },
+        "paymentType": {
+          "type": "string",
+          "enum": ["TOTAL", "ABONO"],
+          "description": "Whether payment was a full settlement or partial abono."
+        },
+        "note": {
+          "type": "string",
+          "description": "Optional payment note or reference."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp set via FieldValue.serverTimestamp()."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp set via FieldValue.serverTimestamp()."
+        }
+      },
+      "required": [
+        "userId",
+        "clientId",
+        "clientNameSnapshot",
+        "dateEpochDay",
+        "amount",
+        "method",
+        "paymentType",
+        "createdAt",
+        "updatedAt"
+      ]
+    }
+  },
+  "firestore": {
+    "/users/{userId}/clients/{clientId}": {
+      "schema": { "$ref": "#/entities/Client" },
+      "description": "Per-user directory of lunch customers."
+    },
+    "/users/{userId}/lunch_entries/{entryId}": {
+      "schema": { "$ref": "#/entities/LunchEntry" },
+      "description": "Per-user daily lunch delivery records."
+    },
+    "/users/{userId}/payments/{paymentId}": {
+      "schema": { "$ref": "#/entities/PaymentRecord" },
+      "description": "Per-user full and partial customer payment records."
+    }
+  }
+}
